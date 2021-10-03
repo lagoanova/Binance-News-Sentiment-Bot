@@ -1,8 +1,8 @@
 {
-  "name": "passivbot",
-  "description": "Trading bot running on Bybit and Binance Futures",
+  "name": "Binance-News-Sentiment-Bot",
+  "description": "This is a fully functioning Binance trading bot that takes into account the news sentiment for the top 100 crypto feeds",
   "logo": "https://github.com/enarjord/passivbot/raw/master/docs/images/logo.png",
-  "repository": "https://github.com/enarjord/passivbot",
+  "repository": "https://github.com/CyberPunkMetalHead/Binance-News-Sentiment-Bot",
   "formation": {
     "worker": {
       "quantity": 1,
@@ -21,28 +21,30 @@
     "crypto"
   ],
   "env": {
-    "EXCHANGE": {
-      "description": "Exchange",
+    "binance_api_stalkbot_testnet": {
+      "description": "API KEY TESTNET",
+      "required": false,
+      "value": ""
+    },
+    "binance_secret_stalkbot_testnet": {
+      "description": "API SECRET TESTNET",
+      "required": false,
+	  "value": ""
+    },
+    "binance_api_stalkbot_live": {
+      "description": "API KEY LIVE",
+      "required": false,
+      "value": ""
+    },
+    "binance_secret_stalkbot_live": {
+      "description": "API KEY SECRET",
+      "required": false,
+      "value": ""
+    },
+    "use_testnet": {
+      "description": "True: usar testnet; False: usar na conta ao vivo",
       "required": true,
-      "value": "binance_01"
-    },
-    "KEY": {
-      "description": "API KEY",
-      "required": true
-    },
-    "SECRET": {
-      "description": "API SECRET",
-      "required": true
-    },
-    "CHAT_ID": {
-      "description": "Telegram CHAT_ID",
-      "required": true,
-      "value": "Get id https://t.me/raw_data_bot"
-    },
-    "TOKEN": {
-      "description": "Telegram TOKEN",
-      "required": true,
-      "value": "Create bot https://t.me/BotFather"
+      "value": "true"
     }
   }
 }

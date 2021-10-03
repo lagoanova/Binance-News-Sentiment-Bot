@@ -44,7 +44,7 @@ from itertools import count
 from timeit import default_timer as timer
 
 # Use testnet (change to True) or live (change to False)?
-testnet = True
+testnet = os.getenv('use_testnet')
 
 # get binance key and secret from environment variables for testnet and live
 api_key_test = os.getenv('binance_api_stalkbot_testnet')
@@ -80,7 +80,7 @@ keywords = {
     'XRP': ['ripple', 'xrp', 'XRP', 'Ripple', 'RIPPLE'],
     'BTC': ['BTC', 'bitcoin', 'Bitcoin', 'BITCOIN'],
     'XLM': ['Stellar Lumens', 'XLM'],
-    #'BCH': ['Bitcoin Cash', 'BCH'],
+    'BCH': ['Bitcoin Cash', 'BCH'],
     'ETH': ['ETH', 'Ethereum'],
     'BNB' : ['BNB', 'Binance Coin'],
     'LTC': ['LTC', 'Litecoin']
