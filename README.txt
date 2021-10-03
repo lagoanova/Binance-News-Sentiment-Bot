@@ -1,3 +1,8 @@
+:warning: **Use at own risk** :warning:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/lagoanova/Binance-News-Sentiment-Bot)
+
+
 Fully functioning Binance Trading bot that Buys cryptocurrency based on Daily news sentiment from the top 100 crypto feeds.
 
 Main Features:
