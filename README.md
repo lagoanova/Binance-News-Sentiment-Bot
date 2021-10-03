@@ -1,5 +1,3 @@
-:warning: **Use at own risk** :warning:
-
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/lagoanova/Binance-News-Sentiment-Bot)
 
 # Sobre
@@ -29,3 +27,5 @@ Use por sua conta e risco! Você nunca deve negociar com dinheiro que não pode 
 Você é sempre bem-vindo para pedir ajuda ou obter mais informações sobre como funciona exatamente.
 
 Não é recomendação de investimento!
+
+:warning: **User por sua conta e risco** :warning:
