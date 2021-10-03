@@ -20,12 +20,11 @@ Características principais:
 
 Todas as estratégias e investimentos envolvem risco de perda. Nenhuma informação contida neste produto deve ser interpretada como uma garantia de resultados.
 
-Use por sua conta e risco! Você nunca deve negociar com dinheiro que não pode ou tem medo de perder.
-
-*VOCÊ É RESPONSÁVEL POR QUAISQUER PERDAS QUE POSSAM SER RESULTANTES DO USO DO BOT!*
+Você nunca deve negociar com dinheiro que não pode ou tem medo de perder.
 
 Você é sempre bem-vindo para pedir ajuda ou obter mais informações sobre como funciona exatamente.
 
-Não é recomendação de investimento!
 
-:warning: **User por sua conta e risco** :warning:
+:warning: **Use por sua conta e risco** :warning:
+:warning: **Não é recomendação de investimento!** :warning:
+:warning: ** VOCÊ É RESPONSÁVEL POR QUAISQUER PERDAS QUE POSSAM SER RESULTANTES DO USO DO BOT! :warning:
