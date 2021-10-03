@@ -1,6 +1,6 @@
 {
   "name": "Binance-News-Sentiment-Bot",
-  "description": "This is a fully functioning Binance trading bot that takes into account the news sentiment for the top 100 crypto feeds",
+  "description": "Mais informações em https://www.cryptomaton.org/2021/04/17/how-to-code-a-binance-crypto-trading-bot-that-trades-based-on-daily-news-sentiment/",
   "logo": "https://github.com/enarjord/passivbot/raw/master/docs/images/logo.png",
   "repository": "https://github.com/CyberPunkMetalHead/Binance-News-Sentiment-Bot",
   "formation": {
@@ -21,30 +21,60 @@
     "crypto"
   ],
   "env": {
-    "binance_api_stalkbot_testnet": {
+    "TESTNET_BINANCE_API_KEY": {
       "description": "API KEY TESTNET",
       "required": false,
-      "value": ""
+      "value": "https://testnet.binance.vision/"
     },
-    "binance_secret_stalkbot_testnet": {
+    "TESTNET_BINANCE_API_SECRET": {
       "description": "API SECRET TESTNET",
       "required": false,
-	  "value": ""
+	  "value": "https://testnet.binance.vision/"
     },
-    "binance_api_stalkbot_live": {
+    "BINANCE_API_LIVE": {
       "description": "API KEY LIVE",
       "required": false,
       "value": ""
     },
-    "binance_secret_stalkbot_live": {
+    "BINANCE_SECRET_LIVE": {
       "description": "API KEY SECRET",
       "required": false,
       "value": ""
     },
-    "use_testnet": {
-      "description": "True: usar testnet; False: usar na conta ao vivo",
+    "USE_TESTNET": {
+      "description": "Use testnet (mude para True) ou live (mude para False)?",
       "required": true,
       "value": "true"
+    },
+    "QUANTITY": {
+      "description": "O valor de compra. Por padrão em USDT",
+      "required": true,
+      "value": "50"
+    },
+    "SENTIMENT_THRESHOLD": {
+      "description": "Definir o quão positivas as notícias devem ser para colocar uma negociação. O número é um composto de valores negativos, neutros e positivos da análise nltk. Insira um número entre -1 e 1",
+      "required": true,
+      "value": "0.5"
+    },
+    "NEGATIVE_SENTIMENT_THRESHOLD": {
+      "description": "Insira um número entre -1 e 1",
+      "required": true,
+      "value": "0"
+    },
+    "MINUMUM_ARTICLES": {
+      "description": "Definir o número mínimo de artigos que precisam ser analisados ​​para que a análise de sentimento se qualifique para um sinal de negociação. Evite usar 1, pois isso não representa o sentimento geral",
+      "required": true,
+      "value": "9"
+    },
+    "REPEAT_EVERY": {
+      "description": "Defina com que frequência executar o código, em minutos.",
+      "required": true,
+      "value": "60"
+    },
+    "HOURS_PAST": {
+      "description": "Definir quantos anos um artigo pode ter para ser incluído. Tempo em horas",
+      "required": true,
+      "value": "24"
     }
   }
 }

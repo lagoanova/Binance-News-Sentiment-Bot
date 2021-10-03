@@ -44,14 +44,14 @@ from itertools import count
 from timeit import default_timer as timer
 
 # Use testnet (change to True) or live (change to False)?
-testnet = os.getenv('use_testnet')
+testnet = os.getenv('USE_TESTNET')
 
 # get binance key and secret from environment variables for testnet and live
-api_key_test = os.getenv('binance_api_stalkbot_testnet')
-api_secret_test = os.getenv('binance_secret_stalkbot_testnet')
+api_key_test = os.getenv('TESTNET_BINANCE_API_KEY')
+api_secret_test = os.getenv('TESTNET_BINANCE_API_SECRET')
 
-api_key_live = os.getenv('binance_api_stalkbot_live')
-api_secret_live = os.getenv('binance_secret_stalkbot_live')
+api_key_live = os.getenv('BINANCE_API_LIVE')
+api_secret_live = os.getenv('BINANCE_SECRET_LIVE')
 
 # Authenticate with the client
 if testnet:
@@ -79,16 +79,18 @@ if testnet:
 keywords = {
     'XRP': ['ripple', 'xrp', 'XRP', 'Ripple', 'RIPPLE'],
     'BTC': ['BTC', 'bitcoin', 'Bitcoin', 'BITCOIN'],
-    'XLM': ['Stellar Lumens', 'XLM'],
-    'BCH': ['Bitcoin Cash', 'BCH'],
-    'ETH': ['ETH', 'Ethereum'],
-    'BNB' : ['BNB', 'Binance Coin'],
-    'LTC': ['LTC', 'Litecoin']
+    'XLM': ['Stellar Lumens', 'XLM', 'xlm', 'stellar lumens', 'stellar'],
+    #'BCH': ['Bitcoin Cash', 'BCH', 'bitcoin cash'],
+    'ETH': ['ETH', 'eth', 'Ethereum', 'ethereum'],
+    'BNB' : ['BNB', 'bnb', 'Binance Coin', 'binance coin'],
+    #'LTC': ['LTC', 'ltc', 'Litecoin', 'litecoin'],
+    'ADA': ['ADA', 'ada', 'cardano'],
+    'XMR': ['XMR', 'xmr', 'Monero', 'monero']
     }
 
 # The Buy amount in the PAIRING symbol, by default USDT
 # 100 will for example buy the equivalent of 100 USDT in Bitcoin.
-QUANTITY = 100
+QUANTITY = os.getenv('QUANTITY')
 
 # define what to pair each coin to
 # AVOID PAIRING WITH ONE OF THE COINS USED IN KEYWORDS
@@ -97,21 +99,21 @@ PAIRING = 'USDT'
 # define how positive the news should be in order to place a trade
 # the number is a compound of neg, neu and pos values from the nltk analysis
 # input a number between -1 and 1
-SENTIMENT_THRESHOLD = 0
-NEGATIVE_SENTIMENT_THRESHOLD = 0
+SENTIMENT_THRESHOLD = os.getenv('SENTIMENT_THRESHOLD')
+NEGATIVE_SENTIMENT_THRESHOLD = os.getenv('NEGATIVE_SENTIMENT_THRESHOLD')
 
 # define the minimum number of articles that need to be analysed in order
 # for the sentiment analysis to qualify for a trade signal
 # avoid using 1 as that's not representative of the overall sentiment
-MINUMUM_ARTICLES = 1
+MINUMUM_ARTICLES = os.getenv('MINUMUM_ARTICLES')
 
 # define how often to run the code (check for new + try to place trades)
 # in minutes
-REPEAT_EVERY = 60
+REPEAT_EVERY = os.getenv('REPEAT_EVERY')
 
 # define how old an article can be to be included
 # in hours
-HOURS_PAST = 24
+HOURS_PAST = os.getenv('HOURS_PAST')
 
 
 ############################################
