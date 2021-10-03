@@ -2,24 +2,30 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/lagoanova/Binance-News-Sentiment-Bot)
 
+# Sobre
+Bot Binance Trading em pleno funcionamento que compra criptomoedas com base no sentimento das notícias diárias dos 100 principais feeds de criptografia.
 
-Fully functioning Binance Trading bot that Buys cryptocurrency based on Daily news sentiment from the top 100 crypto feeds.
+Características principais: 
+* Extraia e analise a última manchete dos 100 principais sites de notícias sobre criptografia.
+* Fornece uma visão geral da moeda mais mencionada em todas as manchetes
+* Analise o sentimento de cada título e categorize a saída por moeda
+* Faça um pedido de compra se o sentimento composto for positivo
+* O bot vende %99,5 das moedas que comprou para evitar exceções
+* O dicionário "coins_in_hand" armazena a quantidade de moedas que o bot comprou e atualmente está segurando.
 
-Main Features:
-Pull and analyse the last headline from the top 100 crypto news sites
+# Opções configuráveis
 
-Provide an overview on the most mentioned coin across all the headlines
+* Funciona com qualquer número de criptomoedas
+* Para obter um guia de configuração passo a passo completo, consulte: https://www.cryptomaton.org/2021/04/17/how-to-code-a-binance-crypto-trading-bot-that-trades-based -on-daily-news-sentiment /
 
-Analyse the sentiment of each headline and categorise the output by coin
+# AVISO LEGAL
 
-Place a Buy order if the compound sentiment is positive
+Todas as estratégias e investimentos envolvem risco de perda. Nenhuma informação contida neste produto deve ser interpretada como uma garantia de resultados.
 
-The bot sells %99.5 of the coins it bought in order to avoid exceptions
+Use por sua conta e risco! Você nunca deve negociar com dinheiro que não pode ou tem medo de perder.
 
-"coins_in_hand" dictionary stores the amount of coins the bot bought and currently holding.
+*VOCÊ É RESPONSÁVEL POR QUAISQUER PERDAS QUE POSSAM SER RESULTANTES DO USO DO BOT!*
 
-Configurable options
+Você é sempre bem-vindo para pedir ajuda ou obter mais informações sobre como funciona exatamente.
 
-Works with any number of cryptocurrencies
-
-For a complete step-by-step setup guide please see: https://www.cryptomaton.org/2021/04/17/how-to-code-a-binance-crypto-trading-bot-that-trades-based-on-daily-news-sentiment/
+Não é recomendação de investimento!
