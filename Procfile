@@ -1,1 +1,1 @@
-worker: python3 news-analysis.py
+worker: python3 -m nltk.downloader vader_lexicon && python3 news-analysis.py
