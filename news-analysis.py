@@ -90,7 +90,7 @@ keywords = {
 
 # The Buy amount in the PAIRING symbol, by default USDT
 # 100 will for example buy the equivalent of 100 USDT in Bitcoin.
-QUANTITY = os.getenv('QUANTITY')
+QUANTITY = float(os.getenv('QUANTITY'))
 
 # define what to pair each coin to
 # AVOID PAIRING WITH ONE OF THE COINS USED IN KEYWORDS
@@ -99,21 +99,21 @@ PAIRING = 'USDT'
 # define how positive the news should be in order to place a trade
 # the number is a compound of neg, neu and pos values from the nltk analysis
 # input a number between -1 and 1
-SENTIMENT_THRESHOLD = os.getenv('SENTIMENT_THRESHOLD')
-NEGATIVE_SENTIMENT_THRESHOLD = os.getenv('NEGATIVE_SENTIMENT_THRESHOLD')
+SENTIMENT_THRESHOLD = float(os.getenv('SENTIMENT_THRESHOLD'))
+NEGATIVE_SENTIMENT_THRESHOLD = float(os.getenv('NEGATIVE_SENTIMENT_THRESHOLD'))
 
 # define the minimum number of articles that need to be analysed in order
 # for the sentiment analysis to qualify for a trade signal
 # avoid using 1 as that's not representative of the overall sentiment
-MINUMUM_ARTICLES = os.getenv('MINUMUM_ARTICLES')
+MINUMUM_ARTICLES = float(os.getenv('MINUMUM_ARTICLES'))
 
 # define how often to run the code (check for new + try to place trades)
 # in minutes
-REPEAT_EVERY = os.getenv('REPEAT_EVERY')
+REPEAT_EVERY = float(os.getenv('REPEAT_EVERY'))
 
 # define how old an article can be to be included
 # in hours
-HOURS_PAST = os.getenv('HOURS_PAST')
+HOURS_PAST = float(os.getenv('HOURS_PAST'))
 
 
 ############################################
@@ -213,7 +213,7 @@ def calculate_volume():
     else:
         volume = {}
         for coin in CURRENT_PRICE:
-            volume[coin] = float(float(QUANTITY) / float(CURRENT_PRICE[coin]))
+            volume[coin] = float(QUANTITY / float(CURRENT_PRICE[coin]))
             volume[coin] = calculate_one_volume_from_lot_size(coin, volume[coin])
 
         return volume
@@ -268,7 +268,7 @@ async def get_feed_data(session, feed, headers):
 
             #print(f'Czas: {time_between.total_seconds() / (60 * 60)}')
 
-            if time_between.total_seconds() / (60 * 60) <= float(HOURS_PAST):
+            if time_between.total_seconds() / (60 * 60) <= HOURS_PAST:
                 # append the source
                 headlines['source'].append(feed)
                 # append the publication date
@@ -390,7 +390,7 @@ def buy(compiled_sentiment, headlines_analysed):
 
 
         # check if the sentiment and number of articles are over the given threshold
-        if compiled_sentiment[coin] > float(SENTIMENT_THRESHOLD) and headlines_analysed[coin] >= float(MINUMUM_ARTICLES) and coins_in_hand[coin]==0:
+        if compiled_sentiment[coin] > SENTIMENT_THRESHOLD and headlines_analysed[coin] >= MINUMUM_ARTICLES and coins_in_hand[coin]==0:
             # check the volume looks correct
             print(f'preparing to buy {volume[coin+PAIRING]} {coin} with {PAIRING} at {CURRENT_PRICE[coin+PAIRING]}')
 
@@ -443,7 +443,7 @@ def sell(compiled_sentiment, headlines_analysed):
     for coin in compiled_sentiment:
 
         # check if the sentiment and number of articles are over the given threshold
-        if compiled_sentiment[coin] < float(NEGATIVE_SENTIMENT_THRESHOLD) and headlines_analysed[coin] >= float(MINUMUM_ARTICLES) and coins_in_hand[coin]>0:
+        if compiled_sentiment[coin] < NEGATIVE_SENTIMENT_THRESHOLD and headlines_analysed[coin] >= MINUMUM_ARTICLES and coins_in_hand[coin]>0:
 
             # check the volume looks correct
             print(f'preparing to sell {coins_in_hand[coin]} {coin} at {CURRENT_PRICE[coin+PAIRING]}')
@@ -516,4 +516,4 @@ if __name__ == '__main__':
                 print(f'{coin}: {coins_in_hand[coin]}')
         save_coins_in_hand_to_file()
         print(f'\nIteration {i}')
-        time.sleep(60 * float(REPEAT_EVERY))
+        time.sleep(60 * REPEAT_EVERY)
